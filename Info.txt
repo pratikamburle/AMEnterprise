@@ -1,0 +1,109 @@
+For a minimalist POS for importing and selling electric products, focus on just three domains: **Products**, **Sales (Billing)**, and **Basic Reports**. Components and APIs below are sized to what you actually need for a small trading business.[1][2]
+
+## React components to create
+
+### Layout & navigation  
+- `AppLayout` (sidebar/topbar with links: Products, POS, Reports).  
+- `AuthPage` (optional simple login form).  
+
+### Products (inventory)  
+- `ProductListPage`  
+  - Table with search by name/code, stock, buy price, sell price, GST, and actions Edit/Delete.[3][1]
+- `ProductForm`  
+  - Used for Add/Edit product. Fields:  
+    - Product code (also used as barcode value).  
+    - Name / description.  
+    - Purchase price (from China, in your base currency).  
+    - Landed cost fields (optional: shipping, customs, other charges).  
+    - GST rate and selling price (incl. GST).  
+    - Opening stock quantity and reorder level.  
+- `BarcodePreview`  
+  - Shows generated barcode for current product code so you can print labels.  
+
+### POS / Billing  
+- `PosPage`  
+  - Left side:  
+    - Input to scan or type product code (works with barcode scanner as keyboard).[2]
+    - Product search list (optional) for manual selection.  
+  - Center: **CartItemsTable** showing line items (product, qty, price, line total).  
+  - Right summary panel:  
+    - Subtotal, discount, special discount, GST, grand total.  
+    - Customer name (optional), payment mode, “Save & Print” button.  
+- `ReceiptView`  
+  - Minimal invoice/receipt layout with store details, items, totals, and a barcode/QR of invoice number for easy lookup.  
+
+### Reports (very small set)  
+- `DailySalesReportPage`  
+  - Date picker + table summarizing total sales, total GST, total profit for the day.[4][1]
+- `StockReportPage`  
+  - List of products with current stock and low-stock highlight so you know what to reorder from China.[5][1]
+
+***
+
+## .NET Core API (controller endpoints)
+
+Use ASP.NET Core Web API with Entity Framework Core and MySQL/SQL Server. Tutorials on building controller-based APIs show the same pattern of CRUD controllers and DbContext setup.[6][7]
+
+### Entities (simplified)
+
+- `Product`  
+  - Id, Code, Name, PurchasePrice, LandedCost, SellPrice, GstRate, CurrentStock, ReorderLevel, IsActive.  
+- `Sale`  
+  - Id, InvoiceNumber, DateTime, CustomerName, Subtotal, Discount, ExtraDiscount, GstAmount, TotalAmount, PaymentMode.  
+- `SaleItem`  
+  - Id, SaleId, ProductId, Quantity, UnitPrice, GstRate, LineTotal, ProfitPerUnit (optional).  
+
+### Controllers
+
+1. **ProductsController**  
+   - `GET /api/products` (with optional search query).  
+   - `GET /api/products/{id}`  
+   - `POST /api/products`  
+   - `PUT /api/products/{id}`  
+   - `DELETE /api/products/{id}` (soft delete recommended).  
+   - `GET /api/products/by-code/{code}` (for POS scan lookup).  
+
+2. **SalesController**  
+   - `POST /api/sales`  
+     - Accepts cart items, calculates subtotal, discounts, GST, total, and writes `Sale` + `SaleItem` rows; also decreases product stock.[7][1]
+   - `GET /api/sales/{id}` (for receipt view).  
+   - `GET /api/sales?date=2025-12-18` (daily sales listing).  
+
+3. **ReportsController** (simple)  
+   - `GET /api/reports/daily-summary?date=...`  
+     - Returns totals: sales amount, GST collected, gross profit (sales – purchase cost).  
+   - `GET /api/reports/stock`  
+     - Returns product stock list, marking items below reorder level.  
+
+4. **AuthController** (optional but good)  
+   - `POST /api/auth/login` returning JWT; React uses it to protect POS and admin screens.  
+
+***
+
+## How front end and API connect
+
+- React components call these endpoints with `fetch`/Axios; for example, `PosPage` uses `/api/products/by-code/{code}` to add a line item when you scan a product, and `POST /api/sales` when you complete the bill.[8][9]
+- Reports pages call the summary endpoints to show simple tables; you can add charts later if needed.[1][4]
+
+If you want, the next step can be a concrete DB schema (tables + columns) tailored to your electric-parts import business and how to store purchase/import costs so profit is accurate.
+
+[1](https://nrsplus.com/blog/pos-features-for-small-business/)
+[2](https://www.moneris.com/en/blog/posts/product-education/13-essential-pos-system-features-for-your-retail-business)
+[3](https://smartpossoftware.com/pos-system-features.html)
+[4](https://www.mobiletransaction.org/pos-system-features-list/)
+[5](https://www.shopify.com/in/retail/pos-features)
+[6](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-9.0)
+[7](https://github.com/go2ismail/POS---Point-Of-Sales)
+[8](https://www.youtube.com/watch?v=8E7Xwy0lXlg)
+[9](https://myiotlab.in/post/building-a-powerful-point-of-sale-pos-system-react-18-laravel-10)
+[10](https://technologyadvice.com/blog/sales/pos-features/)
+[11](https://www.indeed.com/career-advice/career-development/important-pos-system-features)
+[12](https://squareup.com/us/en/point-of-sale)
+[13](https://www.posnation.com/blog/retail-pos-features)
+[14](https://codingmstr.com/download-pos-system-built-with-react/)
+[15](https://learn.microsoft.com/en-us/dotnet/framework/additional-apis/pos-for-net/pos-for-net-architecture)
+[16](https://www.npmjs.com/package/react-pos-engine)
+[17](https://codecanyon.net/item/advance-pos-system-with-stock-manager-aspnet-core-ef-core-net-core-50/35884655)
+[18](https://www.qdos.com.au/30-essential-features-of-a-retail-pos-system/)
+[19](https://github.com/Kavithma-Thushal/POS-FrontEnd-React)
+[20](https://www.youtube.com/watch?v=luO0E9QyXJM)
