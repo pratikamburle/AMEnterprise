@@ -9,7 +9,7 @@ import { ReceiptView } from "./components/pos/ReceiptView";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/AMEnterprise/">
       <AppLayout>
         <Routes>
           <Route path="/" element={<Navigate to="/products" replace />} />
