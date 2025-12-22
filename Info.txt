@@ -1,3 +1,8 @@
+## server domain give to client
+
+## Domain and server from Contabo..
+
+
 For a minimalist POS for importing and selling electric products, focus on just three domains: **Products**, **Sales (Billing)**, and **Basic Reports**. Components and APIs below are sized to what you actually need for a small trading business.[1][2]
 
 ## React components to create

@@ -4,6 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/AMEnterprise/Packages/Client/POS_Solution/",
+  base: "/AMEnterprise/",
   plugins: [react(), tailwindcss()],
 });
