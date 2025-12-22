@@ -1,3 +1,4 @@
+// src/pages/products/ProductFormPage.tsx
 import { useNavigate, useParams } from "react-router-dom";
 import { ProductForm, type ProductFormValues } from "./ProductForm";
 
@@ -15,7 +16,7 @@ export function ProductFormPage() {
 
   const handleCancel = () => navigate("/products");
 
-  // TODO: when editing, fetch existing product and pass as defaultValues
+  // TODO: when editing, fetch product from API and pass as defaultValues
   const defaultValues: ProductFormValues | undefined = isEdit
     ? {
         code: "ELC-1001",
@@ -32,10 +33,10 @@ export function ProductFormPage() {
   return (
     <div className="max-w-3xl">
       <div className="mb-4">
-        <h2 className="text-lg font-semibold tracking-tight text-slate-50">
+        <h2 className="text-lg font-semibold tracking-tight text-slate-900">
           {isEdit ? "Edit product" : "Add new product"}
         </h2>
-        <p className="text-xs text-slate-400">
+        <p className="text-xs text-slate-500">
           Store landed cost from China and selling price with GST.
         </p>
       </div>

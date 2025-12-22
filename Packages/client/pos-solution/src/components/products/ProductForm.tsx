@@ -1,3 +1,4 @@
+// src/ui/ProductForm.tsx
 import { useState, type FormEvent } from "react";
 
 export type ProductFormValues = {
@@ -64,12 +65,12 @@ export function ProductForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 rounded-xl border border-slate-800 bg-slate-900/70 p-5 shadow-sm"
+      className="space-y-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
     >
       {/* Identification */}
       <div className="grid gap-4 md:grid-cols-3">
         <div className="md:col-span-1">
-          <label className="block text-xs font-medium text-slate-300">
+          <label className="block text-xs font-medium text-slate-700">
             Product code
           </label>
           <input
@@ -77,7 +78,7 @@ export function ProductForm({
             value={values.code}
             onChange={handleChange}
             placeholder="E.g. ELC-1001"
-            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
             required
           />
           <p className="mt-1 text-[11px] text-slate-500">
@@ -86,7 +87,7 @@ export function ProductForm({
         </div>
 
         <div className="md:col-span-2">
-          <label className="block text-xs font-medium text-slate-300">
+          <label className="block text-xs font-medium text-slate-700">
             Name / description
           </label>
           <input
@@ -94,7 +95,7 @@ export function ProductForm({
             value={values.name}
             onChange={handleChange}
             placeholder="LED Bulb 12W warm white"
-            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
             required
           />
         </div>
@@ -103,7 +104,7 @@ export function ProductForm({
       {/* Pricing */}
       <div className="grid gap-4 md:grid-cols-4">
         <div>
-          <label className="block text-xs font-medium text-slate-300">
+          <label className="block text-xs font-medium text-slate-700">
             Purchase price (ex‑India)
           </label>
           <input
@@ -112,7 +113,7 @@ export function ProductForm({
             name="purchasePrice"
             value={values.purchasePrice}
             onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
           <p className="mt-1 text-[11px] text-slate-500">
             Price from China supplier.
@@ -120,7 +121,7 @@ export function ProductForm({
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-300">
+          <label className="block text-xs font-medium text-slate-700">
             Landed cost / unit
           </label>
           <input
@@ -129,7 +130,7 @@ export function ProductForm({
             name="landedCost"
             value={values.landedCost}
             onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
           <p className="mt-1 text-[11px] text-slate-500">
             Includes freight, customs, etc.
@@ -137,7 +138,7 @@ export function ProductForm({
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-300">
+          <label className="block text-xs font-medium text-slate-700">
             Selling price (incl. GST)
           </label>
           <input
@@ -146,19 +147,19 @@ export function ProductForm({
             name="sellPrice"
             value={values.sellPrice}
             onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-300">
+          <label className="block text-xs font-medium text-slate-700">
             GST rate (%)
           </label>
           <select
             name="gstRate"
             value={values.gstRate}
             onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           >
             <option value={0}>0%</option>
             <option value={5}>5%</option>
@@ -172,7 +173,7 @@ export function ProductForm({
       {/* Stock */}
       <div className="grid gap-4 md:grid-cols-3">
         <div>
-          <label className="block text-xs font-medium text-slate-300">
+          <label className="block text-xs font-medium text-slate-700">
             Opening stock
           </label>
           <input
@@ -180,11 +181,11 @@ export function ProductForm({
             name="openingStock"
             value={values.openingStock}
             onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-slate-300">
+          <label className="block text-xs font-medium text-slate-700">
             Reorder level
           </label>
           <input
@@ -192,12 +193,12 @@ export function ProductForm({
             name="reorderLevel"
             value={values.reorderLevel}
             onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
         </div>
-        <div className="rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-xs text-slate-300">
-          <p className="font-medium text-slate-100">Per‑unit margin</p>
-          <p className="mt-1 text-sm text-emerald-400">
+        <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700">
+          <p className="font-medium text-slate-900">Per‑unit margin</p>
+          <p className="mt-1 text-sm text-emerald-700">
             ₹{marginPerUnit.toFixed(2)}
           </p>
           <p className="mt-1 text-[11px] text-slate-500">
@@ -217,14 +218,14 @@ export function ProductForm({
           <button
             type="button"
             onClick={onCancel}
-            className="inline-flex items-center rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-slate-800"
+            className="inline-flex items-center rounded-md border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"
           >
             Cancel
           </button>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center rounded-md bg-emerald-500 px-4 py-2 text-xs font-semibold text-emerald-950 shadow-sm hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center rounded-md bg-emerald-500 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting
               ? "Saving..."
