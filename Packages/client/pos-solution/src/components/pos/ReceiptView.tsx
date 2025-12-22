@@ -63,7 +63,7 @@ export function ReceiptView() {
         {/* Header */}
         <div className="text-center">
           <h1 className="text-base font-semibold text-slate-900">
-            Electric POS
+            AMEnterprise
           </h1>
           <p className="text-[11px] text-slate-500">
             Import & retail of electric products

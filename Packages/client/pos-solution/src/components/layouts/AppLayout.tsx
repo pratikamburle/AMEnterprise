@@ -7,8 +7,9 @@ type AppLayoutProps = {
 
 const navItems = [
   { to: "/products", label: "Products" },
-  { to: "/pos", label: "POS" },
-  { to: "/reports", label: "Reports" },
+  { to: "/pos", label: "Sales" },
+  { to: "/reports/daily", label: "Reports" },
+  // { to: "/reports/stock", label: "Stock" },
 ];
 
 export function AppLayout({ children }: AppLayoutProps) {

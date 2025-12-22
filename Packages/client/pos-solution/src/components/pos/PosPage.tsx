@@ -249,7 +249,7 @@ export function PosPage() {
       {/* Right: products & summary */}
       <section className="space-y-4">
         {/* Quick product picker */}
-        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+        {/* <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
           <div className="flex items-center justify-between gap-3">
             <div className="flex-1">
               <label className="block text-xs font-medium text-slate-700">
@@ -287,7 +287,7 @@ export function PosPage() {
               </p>
             )}
           </div>
-        </div>
+        </div> */}
 
         {/* Summary card */}
         <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm space-y-3">
