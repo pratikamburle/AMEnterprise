@@ -22,20 +22,20 @@ const mockProducts: Product[] = [
 
 export function PosPage() {
   const [codeInput, setCodeInput] = useState("");
-  const [search, setSearch] = useState("");
+  //const [search, setSearch] = useState("");
   const [cart, setCart] = useState<CartItem[]>([]);
   const [discount, setDiscount] = useState(0);
   const [extraDiscount, setExtraDiscount] = useState(0);
   const [gstRate] = useState(18);
   const navigate = useNavigate();
 
-  const filteredProducts = useMemo(
-    () =>
-      mockProducts.filter((p) =>
-        (p.name + p.code).toLowerCase().includes(search.toLowerCase())
-      ),
-    [search]
-  );
+  // const filteredProducts = useMemo(
+  //   () =>
+  //     mockProducts.filter((p) =>
+  //       (p.name + p.code).toLowerCase().includes(search.toLowerCase())
+  //     ),
+  //   [search]
+  // );
 
   const subtotal = useMemo(
     () =>
@@ -74,17 +74,17 @@ export function PosPage() {
     setCodeInput("");
   };
 
-  const handleAddProduct = (product: Product) => {
-    setCart((prev) => {
-      const existing = prev.find((i) => i.product.id === product.id);
-      if (existing) {
-        return prev.map((i) =>
-          i.product.id === product.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
-      }
-      return [...prev, { product, quantity: 1 }];
-    });
-  };
+  // const handleAddProduct = (product: Product) => {
+  //   setCart((prev) => {
+  //     const existing = prev.find((i) => i.product.id === product.id);
+  //     if (existing) {
+  //       return prev.map((i) =>
+  //         i.product.id === product.id ? { ...i, quantity: i.quantity + 1 } : i
+  //       );
+  //     }
+  //     return [...prev, { product, quantity: 1 }];
+  //   });
+  // };
 
   const handleQuantityChange = (id: number, quantity: number) => {
     if (quantity <= 0) {
