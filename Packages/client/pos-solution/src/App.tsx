@@ -8,6 +8,7 @@ import { PosPage } from "./components/pos/PosPage";
 import { ReceiptView } from "./components/pos/ReceiptView";
 import { DailySalesReportPage } from "./components/reports/DailySalesReportPage";
 import { StockReportPage } from "./components/reports/StockReportPage";
+import { ProductBarcode } from "./components/barcode/ProductBarcode";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/receipt" element={<ReceiptView />} />
           <Route path="/reports/daily" element={<DailySalesReportPage />} />
           <Route path="/reports/stock" element={<StockReportPage />} />
+          <Route path="/products/barcode" element={<ProductBarcode />} />
         </Routes>
       </AppLayout>
     </BrowserRouter>

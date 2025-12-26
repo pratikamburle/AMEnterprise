@@ -184,7 +184,7 @@ export function ProductForm({
             className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
         </div>
-        <div>
+        {/* <div>
           <label className="block text-xs font-medium text-slate-700">
             Reorder level
           </label>
@@ -195,7 +195,7 @@ export function ProductForm({
             onChange={handleChange}
             className="mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
-        </div>
+        </div> */}
         <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700">
           <p className="font-medium text-slate-900">Per‑unit margin</p>
           <p className="mt-1 text-sm text-emerald-700">

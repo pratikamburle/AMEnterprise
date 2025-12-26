@@ -8,6 +8,7 @@ type AppLayoutProps = {
 
 const navItems = [
   { to: "/products", label: "Products" },
+  { to: "/products/barcode", label: "Product Barcode" },
   { to: "/pos", label: "Sales" },
   { to: "/reports/daily", label: "Reports" },
 ];
@@ -53,9 +54,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       {/* Main content */}
       <div className="flex-1 flex flex-col">
         <header className="h-14 border-b border-slate-200 flex items-center justify-between px-6 bg-white/80 backdrop-blur">
-          <h1 className="text-sm font-medium text-slate-800">
-            Simple POS Dashboard
-          </h1>
+          <h1 className="text-sm font-medium text-slate-800">POS Dashboard</h1>
           <div className="flex items-center gap-3">
             <span className="text-xs text-slate-500">
               Logged in as <span className="text-slate-800">Owner</span>
